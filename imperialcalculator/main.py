@@ -1,14 +1,13 @@
 from kivy.app import App
-from kivy.uix.label import Label
+from kivy.properties import StringProperty
 from kivy.uix.gridlayout import GridLayout
 
 
-class NumPad(GridLayout):
-    pass
-
-
 class MainWidget(GridLayout):
-    pass
+    text = StringProperty('')
+
+    def btn_pressed(self, btn):
+        self.text += f'{btn}'
 
 
 # Base Class of app, it should always inherit App
