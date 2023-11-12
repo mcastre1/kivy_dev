@@ -11,12 +11,23 @@
         text: root.text
         size_hint_y: .1
         disabled: True
-    Button:
-        id: clear_btn
-        text: 'Clear'
-        background_color: 0.65, 0.15, 0.15, 1
+    GridLayout:
+        cols: 2
+        rows: 1
         size_hint_y: .1
-        on_press: root.btn_pressed('c')
+
+        Button:
+            id: clear_btn
+            text: 'Clear'
+            background_color: 0.65, 0.15, 0.15, 1
+            on_press: root.btn_pressed('c')
+
+        Button:
+            id: backspace
+            text: 'Back'
+            background_color: 0.65, 0.15, 0.15, 1
+            on_press: root.backspace()
+
 
     GridLayout:
         cols: 2
