@@ -65,7 +65,9 @@ class MainWidget(GridLayout):
             else:  # Append anything else
                 digit_op.append(op.strip())
 
-        print(digit_op)
+        self.clear_operation()
+        self.operation.append(str(eval(''.join(digit_op))))
+        self.update_text()
         print(eval(''.join(digit_op)))
 
 
