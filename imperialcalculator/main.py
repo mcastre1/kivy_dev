@@ -6,7 +6,7 @@ from kivy.uix.gridlayout import GridLayout
 class MainWidget(GridLayout):
     text = StringProperty('')
     operation = []
-    operators = ['+', '-']  # List of available and usable operators
+    operators = ['+', '-', '*', '/']  # List of available and usable operators
 
     # Function called when Buttons in MainWidget widget are pressed
     def btn_pressed(self, btn):
@@ -15,7 +15,7 @@ class MainWidget(GridLayout):
         elif btn == '=':  # Using the built-in function eval to evaluate an operation in string format
             self.evaluate()
         else:
-            if '/' in btn:
+            if '/' in btn and len(btn) > 1:
                 if len(self.operation) > 0:
                     if not '/' in self.operation[-1]:
                         if self.operation[-1].strip() in self.operators:
@@ -52,12 +52,20 @@ class MainWidget(GridLayout):
     def evaluate(self):
         digit_op = []
 
+        if len(self.operation) == 0:
+            return
+        if self.operation[-1].strip() in self.operators:
+            return
+
         for op in self.operation:
-            if '/' in op:  # Here is where we translate the fraction format number to decimal
+            print(op.strip())
+            if '/' in op and len(op.strip()) > 2:  # Here is where we translate the fraction format number to decimal
+
                 digit_op.append(f'.{str(eval(op.strip())).split(".")[1]}')
             else:  # Append anything else
                 digit_op.append(op.strip())
 
+        print(digit_op)
         print(eval(''.join(digit_op)))
 
 

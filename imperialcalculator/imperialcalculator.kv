@@ -11,6 +11,7 @@
         text: root.text
         size_hint_y: .1
         disabled: True
+
     GridLayout:
         cols: 2
         rows: 1
@@ -27,7 +28,6 @@
             text: 'Back'
             background_color: 0.65, 0.15, 0.15, 1
             on_press: root.backspace()
-
 
     GridLayout:
         cols: 2
@@ -94,7 +94,7 @@
 
             GridLayout:
                 cols: 1
-                rows: 3
+                rows: 5
 
                 Button:
                     text: '+'
@@ -104,6 +104,14 @@
                     text: '-'
                     background_color: 0.1, 0.5, 0.6, 1
                     on_press: root.btn_pressed('-')
+                Button:
+                    text: '/'
+                    background_color: 0.1, 0.5, 0.6, 1
+                    on_press: root.btn_pressed('/')
+                Button:
+                    text: '*'
+                    background_color: 0.1, 0.5, 0.6, 1
+                    on_press: root.btn_pressed('*')
                 Button:
                     text: '='
                     background_color: 0.1, 0.5, 0.6, 1
@@ -163,6 +171,14 @@
                 text: '3/4'
                 background_color: 0.67, 0.47, 0.23, 1
                 on_press : root.btn_pressed('3/4')
+            Button:
+                text: '13/16'
+                background_color: 0.67, 0.47, 0.23, 1
+                on_press : root.btn_pressed('13/16')
+            Button:
+                text: '7/8'
+                background_color: 0.67, 0.47, 0.23, 1
+                on_press : root.btn_pressed('7/8')
             Button:
                 text: '15/16'
                 background_color: 0.67, 0.47, 0.23, 1
