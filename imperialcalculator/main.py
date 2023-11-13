@@ -1,6 +1,7 @@
 from kivy.app import App
 from kivy.properties import StringProperty
 from kivy.uix.gridlayout import GridLayout
+from plyer import vibrator
 
 
 class MainWidget(GridLayout):
@@ -56,6 +57,16 @@ class MainWidget(GridLayout):
 
         self.update_text()
 
+        self.vibrate()
+
+    # Function checks if vibrator exists in device, if so, vibrate.
+    def vibrate(self):
+        try:
+            if vibrator.exists():
+                vibrator.vibrate(.1)
+        except:
+            print('vibrate')
+
     # Function called when operation list and display need to be cleared.
     def clear_operation(self):
         self.operation.clear()
@@ -70,6 +81,7 @@ class MainWidget(GridLayout):
             self.operation.pop()
         self.update_text()
 
+        self.vibrate()
     # Translates fraction format numbers to actual decimals
     def evaluate(self):
         digit_op = []
