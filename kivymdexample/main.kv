@@ -1,0 +1,14 @@
+<DemoUI>:
+    BoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            id: toolbar
+            title: 'KivMob 2.0'
+        Screen:
+            name: "banner"
+            MDRaisedButton:
+                    text: "Toggle Banner Ad"
+                    elevation_normal: 2
+                    opposite_colors: True
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                    on_press: app.toggle_banner()
